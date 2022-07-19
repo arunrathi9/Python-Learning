@@ -17,28 +17,25 @@ def binarySearch(arr, key):
 
     while (s<=e):
         if arr[mid] == key:
-            return True
+            return mid
         elif arr[mid] < key:
             s = mid + 1
         elif arr[mid] > key:
             e = mid - 1
         mid = s + (e-s)//2
     
-    return False
+    return -1
 
 def search(arr, target):
     n = len(arr)
 
     pivot_ = pivot(arr)
     if arr[pivot_] <= target and target <= arr[n-1]:
-        if binarySearch(arr[pivot_:n], target):
-            return True
-    elif arr[0] <= target and target < arr[pivot_ - 1]:
-        if binarySearch(arr[:pivot_], target):
-            return True
-    
-    return False
+        return pivot_ + binarySearch(arr[pivot_:n], target)
+            
+    else:
+        return binarySearch(arr[:pivot_], target)
 
-arr = [7,9,1,2,3]
+arr = [8, 9, 2, 4, 5, 6, 7]
 print(search(arr, 2))
 print(search(arr, 5))
