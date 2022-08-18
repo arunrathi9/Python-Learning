@@ -74,3 +74,8 @@ matrix = [[1,0], [1,0]]
 n = len(matrix)
 ans = findPath(matrix, n)
 print(sorted(ans) if len(ans)>0 else -1)
+
+matrix = [[0,1], [1,0]]
+n = len(matrix)
+ans = findPath(matrix, n)
+print(sorted(ans) if len(ans)>0 else -1)
