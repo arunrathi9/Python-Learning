@@ -21,3 +21,10 @@ output = ""
 index = 0
 letterCombinations(digits, output, res, index)
 print(res)
+
+digits = '22'
+res = []
+output = ""
+index = 0
+letterCombinations(digits, output, res, index)
+print(res)
