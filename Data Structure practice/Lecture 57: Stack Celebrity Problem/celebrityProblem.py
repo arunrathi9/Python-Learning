@@ -23,30 +23,35 @@ def celebrity(M, n):
     #step 3: Single element can be potential celebrity, verify it
     
     #row check
-    rowCheck = False
+    #rowCheck = False
     zeroCount = 0
     for i in range(n):
         if M[candidate][i] == 0:
             zeroCount += 1
     
-    if zeroCount == n:
-        rowCheck = True
+    # if zeroCount == n:
+    #     rowCheck = True
+    if zeroCount != n:
+        return -1
         
     # col check
-    colCheck = False
+    #colCheck = False
     zeroCount = 0
     for i in range(n):
         if M[i][candidate] == 1:
             zeroCount += 1
             
-    if zeroCount == n-1:
-        colCheck = True
+    # if zeroCount == n-1:
+    #     colCheck = True
+    if zeroCount != n-1:
+        return -1
     
     # result
-    if rowCheck and colCheck:
-        return candidate
-    else:
-        return -1
+    # if rowCheck and colCheck:
+    #     return candidate
+    # else:
+    #     return -1
+    return candidate
 
 M = [[0,1,0], [0,0,0], [0,1,0]]
 print(celebrity(M, len(M)))
