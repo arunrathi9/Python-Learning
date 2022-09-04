@@ -45,10 +45,69 @@ def levelOrderTraversal(root):
             
             if (temp.right != None):
                 d.append(temp.right)
-                
 
-node = Node(None)
-strr = list(map(int, "1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1".split(" ")))
+def inOrder(root):
 
-root = buildTree(node)
+    if (root is None):
+        return
+
+    inOrder(root.left)
+    print(root.val, end=" ")
+    inOrder(root.right)                
+
+def preOrder(root):
+
+    if (root is None):
+        return
+
+    print(root.val, end=" ")
+    preOrder(root.left)
+    preOrder(root.right)
+
+def postOrder(root):
+
+    if (root is None):
+        return
+
+    postOrder(root.left)
+    postOrder(root.right)
+    print(root.val, end=" ")
+
+def buildfromLevelOrder(root):
+    print("Enter the root node: ")
+    root = Node(int(input()))
+    q = deque()
+    q.append(root)
+    while(len(q)>0):
+        temp = q.popleft()
+
+        # left node
+        print("Enter the value for left node: ", temp.val)
+        leftnode = int(input())
+        if (leftnode != -1):
+            temp.left = Node(leftnode)
+            root.left = Node(leftnode)
+            q.append(temp.left)
+
+        # right node
+        print("Enter the value for right1 node: ", temp.val)
+        right_node = int(input())
+        if(right_node != -1):
+            temp.right = Node(right_node)
+            root.right = Node(right_node)
+            q.append(temp.right)
+    
+    return root
+
+root = Node(None)
+# strr = list(map(int, "1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1".split(" ")))
+
+# root = buildTree(node)
+# levelOrderTraversal(root)
+# inOrder(root)
+# print()
+# preOrder(root)
+# print()
+# postOrder(root)
+root = buildfromLevelOrder(root)
 levelOrderTraversal(root)
