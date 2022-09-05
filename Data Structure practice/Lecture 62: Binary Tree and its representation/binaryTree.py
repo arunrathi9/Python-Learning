@@ -100,14 +100,15 @@ def buildfromLevelOrder(root):
     return root
 
 root = Node(None)
-# strr = list(map(int, "1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1".split(" ")))
+#strr = list(map(int, "1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1".split(" ")))
+strr = list(map(int, "20 10 5 -1 -1 15 13 -1 -1 -1 35 30 -1 -1 42 -1 -1".split(" ")))
 
-# root = buildTree(node)
-# levelOrderTraversal(root)
+root = buildTree(root)
+levelOrderTraversal(root)
 # inOrder(root)
 # print()
 # preOrder(root)
 # print()
-# postOrder(root)
-root = buildfromLevelOrder(root)
-levelOrderTraversal(root)
+# postOrder(root) 
+#root = buildfromLevelOrder(root)
+#levelOrderTraversal(root)
